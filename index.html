@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/img/pin-cv.ico" type="image/x-icon">
+    <title>Resume Builder</title>
+</head>
+
+<body>
+
+    <!-- FORM -->
+    <div class="container" id="resume-form">
+        <h1 class="text-center my-4">Resume Builder</h1>
+        <p class="text-center">Free online resume maker</p>
+        <p>Build your brand-new resume in as little as 5 minutes.</p>
+        <!-- ROW-1  -->
+        <div class="row">
+
+            <!-- Personal Details COL-1-->
+            <div class="col-md-6">
+                <h3 class="text-center">Personal Details</h3>
+
+                <div class="form-group mt-4">
+                    <label for="full-name">Name</label>
+                    <input type="text" id="full-name" placeholder="Full Name" required="true" class="form-control">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="10 Digit phone number" required="true"
+                        class="form-control">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="email">E-Mail</label>
+                    <!-- <input type="tel" id="email" placeholder="someone@example.com" required="true" class="form-control"><br> -->
+                    <input type="email" id="email" placeholder="example@domain.com" required="true"
+                        class="form-control">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="address">Address</label>
+                    <textarea id="address" cols="30" rows="5" placeholder="Present Address" required="true"
+                        class="form-control"></textarea>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="profile-img">Profile Picture</label>
+                    <input type="file" id="profile-img" accept="image/*" class="form-control">
+                </div>
+
+
+                <!-- Personal Links -->
+                <h4 class="my-3">Links</h4>
+                <!-- <h5 class="text-secondary my-3">Links</h5> -->
+                <div class="form-group">
+                    <label for="linkedin">LinkedIN</label>
+                    <input type="text" id="linkedin" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="github">Github</label>
+                    <input type="text" id="github" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="instagram">Instagram</label>
+                    <input type="text" id="instagram" class="form-control">
+                </div>
+            </div>
+
+
+            <!-- Professional Details COL-2 -->
+            <div class="col-md-6">
+                <h3 class="text-center">Professional Details</h3>
+
+                <!-- Objective  -->
+                <div class="form-group mt-4">
+                    <label for="objective">Objective</label>
+                    <textarea id="objective" placeholder="Write a short objective you want to pitch"
+                        class="form-control"></textarea>
+                </div>
+
+                <!-- Work Experience -->
+                <div class="form-group mt-3" id="experience-div">
+                    <label for="experience">Work Experience</label>
+                    <textarea id="experience-1" cols="30" rows="3" placeholder="Enter work experience 1"
+                        class="form-control we-field"></textarea>
+
+                    <div class="d-grid d-md-flex gap-2 justify-content-md-end mt-2" id="we-btns-div">
+                        <button class="btn btn-primary" id="we-add-btn" onclick="addWorkExperience()">Add Experience
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                            </svg>
+                        </button>
+
+                        <button class="btn btn-danger" id="we-del-btn" onclick="removeWorkExperience()">Remove
+                            Experience
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <!-- <div class="container text-center mt-2" id="we-del-btn">
+                        <button class="btn btn-warning" onclick="addWorkExperience()">Remove Experience
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                            </svg>
+                        </button>
+                    </div> -->
+                </div>
+
+
+                <!--  Education -->
+                <div class="form-group mt-3" id="education-div">
+                    <label for="education">Education</label>
+                    <textarea id="education-1" cols="30" rows="3" placeholder="Enter academic qualifiaction 1"
+                        class="form-control ed-field"></textarea>
+
+                    <!-- <div class="container text-center mt-2" id="ed-btns-div"> -->
+                    <div class="d-grid d-md-flex gap-2 justify-content-md-end mt-2" id="ed-btns-div">
+                        <button class="btn btn-primary" id="ed-add-btn" onclick="addEducation()">Add Education
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                            </svg>
+                        </button>
+
+                        <button class="btn btn-danger" id="ed-del-btn" onclick="removeEducation()">Remove
+                            Education
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                            </svg>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="container text-center mt-4 mb-3 submit-btn">
+            <button onclick="generateResume()" class="btn btn-success">Generate Resume
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- TEMPLATE  -->
+    <div class="container" id="resume-template">
+        <div class="row mt-4">
+            <!--COL-1 ==>  4 of 12 grid columns -->
+            <div class="col-md-4 text-center background">
+                <img src="/img/blank-profile-picture.webp" id="profile-img-template" class="img-fluid profile-pic"
+                    alt="">
+                <div class="container">
+                    <h1 id="full-name-template">Suman Shekhar</h1>
+                    <p id="phone-template">+91 9998889998</p>
+                    <p id="email-template">sam@gmail.com</p>
+                    <p id="address-template">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, blanditiis?
+                    </p>
+                    <hr>
+                    <h4>Links</h4>
+                    <p><a id="linkedin-template" href="#" />www.fb.com</a></p>
+                    <p><a id="github-template" href="#" />www.link.com</a></p>
+                    <p><a id="instagram-template" href="#" />www.insta.com</a></p>
+                </div>
+            </div>
+
+
+            <!--COL-2 ==>  4 of 12 grid columns -->
+            <div class="col-md-8">
+                <!-- <h1 class="text-center">John Doe</h1> -->
+
+                <!-- Objective template  -->
+                <div class="card">
+                    <div class="card-header background">
+                        <h3>Objective</h3>
+                    </div>
+                    <div class="card-body">
+                        <p id="objective-template">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi quidem
+                            odio
+                            nisi error aliquid quas, doloremque quae, impedit aut corrupti dolorum sit ipsa quisquam
+                            facere!
+                            Illum dolorem cum eum eveniet reiciendis adipisci nemo corrupti magnam fugiat cumque,
+                            placeat
+                            soluta doloribus.</p>
+                    </div>
+                </div>
+
+                <!-- Work Experience template -->
+                <div class="card mt-4">
+                    <div class="card-header heading-theme">
+                        <h3>Work Experience</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="we-template">
+
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quibusdam vero accusantium
+                                rerum tenetur explicabo id, ut saepe, voluptates nihil placeat voluptatibus facilis.
+                                Enim deserunt nostrum atque similique in magni.</li>
+                            <li>Hic et assumenda inventore laboriosam, facere, unde sapiente, culpa veritatis maxime
+                                aliquam dolorum nulla ex ullam ea dicta quae deleniti iste impedit eius voluptatum
+                                accusantium blanditiis. Qui minus recusandae incidunt.</li>
+                            <li>Odio explicabo facere quidem suscipit velit a, aspernatur, placeat saepe fugiat dolorem,
+                                doloribus repellendus nulla pariatur architecto nostrum perferendis mollitia labore eius
+                                culpa rem. Odio, esse quod! Cum, corrupti odio.</li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Academic Qualification -->
+                <div class="card mt-4">
+                    <div class="card-header heading-theme">
+                        <h3>Academic Qualification</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="ed-template">
+
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quibusdam vero accusantium
+                                rerum tenetur explicabo id, ut saepe, voluptates nihil placeat voluptatibus facilis.
+                                Enim deserunt nostrum atque similique in magni.</li>
+                            <li>Hic et assumenda inventore laboriosam, facere, unde sapiente, culpa veritatis maxime
+                                aliquam dolorum nulla ex ullam ea dicta quae deleniti iste impedit eius voluptatum
+                                accusantium blanditiis. Qui minus recusandae incidunt.</li>
+                            <li>Odio explicabo facere quidem suscipit velit a, aspernatur, placeat saepe fugiat dolorem,
+                                doloribus repellendus nulla pariatur architecto nostrum perferendis mollitia labore eius
+                                culpa rem. Odio, esse quod! Cum, corrupti odio.</li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3 text-center" id="save-btn">
+        <button onclick="generatePDF()" class="btn btn-outline-info">Save
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-printer-fill" viewBox="0 0 16 16">
+                <path
+                    d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z" />
+                <path
+                    d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z" />
+            </svg>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
