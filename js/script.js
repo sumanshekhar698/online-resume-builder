@@ -1,6 +1,7 @@
 // alert('loading')
 var experinceCount = 1;
 var academicExperince = 1;
+var fileName = "";
 
 function addEducation() {
   console.log("addEducation() << " + academicExperince);
@@ -106,6 +107,7 @@ function generateResume() {
   let fullName = document.getElementById("full-name").value;
   let fullNameTempalte = document.getElementById("full-name-template");
   fullNameTempalte.innerHTML = fullName;
+  fileName = fullName;
 
   let phone = document.getElementById("phone").value;
   let phoneTemplate = document.getElementById("phone-template");
@@ -184,7 +186,7 @@ function generatePDF() {
   //   element.style.height = "900px";
   var opt = {
     margin: 0.5,
-    filename: "Resume_" + new Date().toLocaleDateString() + ".pdf",
+    filename: fileName.toLowerCase() + new Date().toLocaleDateString() + ".pdf",
     image: { type: "jpeg", quality: 1 },
     html2canvas: { scale: 1 },
     jsPDF: {
@@ -197,4 +199,8 @@ function generatePDF() {
 
   // choose the element and pass it to html2pdf() function and call the save() on it to save as pdf.
   html2pdf().set(opt).from(element).save();
+}
+
+function startOver() {
+  window.location.reload();
 }
