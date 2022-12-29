@@ -175,15 +175,26 @@ function generateResume() {
 
 function printResume() {
   console.log("printResume() <<");
-  window.print();
+  // window.print();
+  var prtContent = document.getElementById("resume-template");
+  var WinPrint = window.open(
+    "",
+    "",
+    "left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0"
+  );
+  WinPrint.document.write(prtContent.innerHTML);
+  WinPrint.document.close();
+  WinPrint.focus();
+  WinPrint.print();
+  WinPrint.close();
   console.log("printResume() >>");
 }
 
-function generatePDF() {
+function generatePDFUsingHtml2pdfAndHtmlCanvas() {
   // Choose the element id which you want to export.
   var element = document.getElementById("resume-template");
-  //   element.style.width = "700px";
-  //   element.style.height = "900px";
+  element.style.width = "700px";
+  element.style.height = "900px";
   var opt = {
     margin: 0.5,
     filename: fileName.toLowerCase() + new Date().toLocaleDateString() + ".pdf",
@@ -196,11 +207,43 @@ function generatePDF() {
       precision: "12",
     },
   };
-
   // choose the element and pass it to html2pdf() function and call the save() on it to save as pdf.
   html2pdf().set(opt).from(element).save();
 }
 
+function generatePDFUsingHtml2pdf() {
+  // Choose the element that your content will be rendered to.
+  const element = document.getElementById("resume-template");
+  // Choose the element and save the PDF for your user.
+  html2pdf().from(element).save();
+  // button.addEventListener("click", generatePDF);
+}
+
+function generatePDF() {
+  // using Jspdf;
+  window.jsPDF = window.jspdf.jsPDF;
+  var doc = new jsPDF();
+
+  // Source HTMLElement or a string containing HTML.
+  // var elementHTML = document.querySelector("#");
+  const elementHTML = document.getElementById("resume-template");
+
+  doc.html(elementHTML, {
+    callback: function (doc) {
+      // Save the PDF
+      doc.save("document-html.pdf");
+    },
+    margin: [10, 10, 10, 10],
+    autoPaging: "text",
+    x: 0,
+    y: 0,
+    width: 190, //target width in the PDF document
+    windowWidth: 675, //window width in CSS pixels
+  });
+}
+
 function startOver() {
+  console.log("startOver() <<");
   window.location.reload();
+  console.log("startOver() >>");
 }

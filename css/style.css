@@ -3,7 +3,8 @@
 } */
 
 :root{  
-    --theme-color: rgb(230, 188, 124);
+    /* --theme-color: #e6bc7c; */
+    --theme-color: #d3c8b7;
 }
 
 .profile-pic{
@@ -11,7 +12,7 @@
     height: 100px;
     border-radius: 50%;
     border: 2px solid #fff;
-    box-shadow: 0 0 5px 2px gold;
+    box-shadow: 0 0 5px 2px rgb(230, 228, 219);
     margin: 0 auto;
     /* margin-top: -50px; */
     margin-bottom: 10px;
@@ -20,14 +21,15 @@
 .background{
     background-color: var(--theme-color);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 0.375rem;
+    border:1px solid rgba(0, 0, 0, 0.175);
     /* box-shadow: 0 0 5px 5px #fff; */
     /* margin-bottom: 20px; */
 }
 
-/* .heading-theme{
+.theme{
 background-color: var(--theme-color);
-} */
+}
 
 #resume-template{
     display:none;
