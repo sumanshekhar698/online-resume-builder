@@ -105,8 +105,8 @@ function removeEducation() {
 function generateResume() {
   console.log("generateResume() <<");
   let fullName = document.getElementById("full-name").value;
-  let fullNameTempalte = document.getElementById("full-name-template");
-  fullNameTempalte.innerHTML = fullName;
+  let fullNameTemplate = document.getElementById("full-name-template");
+  fullNameTemplate.innerHTML = fullName;
   fileName = fullName;
 
   let phone = document.getElementById("phone").value;
@@ -175,18 +175,18 @@ function generateResume() {
 
 function printResume() {
   console.log("printResume() <<");
-  // window.print();
-  var prtContent = document.getElementById("resume-template");
-  var WinPrint = window.open(
-    "",
-    "",
-    "left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0"
-  );
-  WinPrint.document.write(prtContent.innerHTML);
-  WinPrint.document.close();
-  WinPrint.focus();
-  WinPrint.print();
-  WinPrint.close();
+  window.print();
+  // var prtContent = document.getElementById("resume-template");
+  // var WinPrint = window.open(
+  //   "",
+  //   "",
+  //   "left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0"
+  // );
+  // WinPrint.document.write(prtContent.innerHTML);
+  // WinPrint.document.close();
+  // WinPrint.focus();
+  // WinPrint.print();
+  // WinPrint.close();
   console.log("printResume() >>");
 }
 
@@ -231,7 +231,7 @@ function generatePDF() {
   doc.html(elementHTML, {
     callback: function (doc) {
       // Save the PDF
-      doc.save("document-html.pdf");
+      doc.save(fileName.toLowerCase() + "_"+new Date().toLocaleDateString() + ".pdf");
     },
     margin: [10, 10, 10, 10],
     autoPaging: "text",

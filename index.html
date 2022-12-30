@@ -62,20 +62,20 @@
                     <label for="linkedin">LinkedIn
                         <i class="fa-brands fa-linkedin"></i>
                     </label>
-                    <input type="text" id="linkedin" class="form-control">
+                    <input type="text" id="linkedin" class="form-control" placeholder="Enter LinkedIn username">
                 </div>
                 <div class="form-group">
                     <label for="github">Github
                         <!-- <i class="fa-brands fa-square-github"></i> -->
                         <i class="fa-brands fa-github"></i>
                     </label>
-                    <input type="text" id="github" class="form-control">
+                    <input type="text" id="github" class="form-control" placeholder="Enter Github username">
                 </div>
                 <div class="form-group">
                     <label for="instagram">Instagram
                         <i class="fa-brands fa-square-instagram"></i>
                     </label>
-                    <input type="text" id="instagram" class="form-control">
+                    <input type="text" id="instagram" class="form-control" placeholder="Enter Instagram username only">
                 </div>
             </div>
 
@@ -93,7 +93,7 @@
 
                 <!-- Work Experience -->
                 <div class="form-group mt-3" id="experience-div">
-                    <label for="experience">Work Experience</label>
+                    <label for="experience">Experience</label>
                     <textarea id="experience-1" cols="30" rows="3" placeholder="Enter work experience 1"
                         class="form-control we-field"></textarea>
 
@@ -153,24 +153,50 @@
     <div class="container" id="resume-template">
         <div class="row mt-4">
             <!--COL-1 ==>  4 of 12 grid columns -->
-            <div class="col-md-4 text-center background">
-                <!-- <img src="/img/blank-profile-picture.webp" id="profile-img-template" class="img-fluid profile-pic" -->
-                <img src="/img/blank-profile-picture.webp" id="profile-img-template" class="profile-pic" alt="">
+            <div class="col-md-4 background text-center">
+                <img src="/img/blank-profile-picture.webp" id="profile-img-template" class="profile-pic text-center"
+                    alt="">
+
                 <div class="container">
                     <h3 id="full-name-template">John Doe</h3>
-                    <!-- <i class="fa-solid fa-phone"></i> -->
-                    <p id="phone-template">9998889998</p>
-                    <!-- <br> -->
-                    <!-- <i class="fa-solid fa-envelope"></i> -->
-                    <p id="email-template">sam@gmail.com</p>
-                    <!-- <p id="email-template" style="display: inline;">sam@gmail.com</p> -->
-                    <p id="address-template">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, blanditiis?
-                    </p>
-                    <hr>
-                    <h5>Links</h5>
-                    <p><a id="linkedin-template" href="#" />www.fb.com</a></p>
-                    <p><a id="github-template" href="#" />www.link.com</a></p>
-                    <p><a id="instagram-template" href="#" />www.insta.com</a></p>
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr class="text-start">
+                                <th scope="row">Phone</th>
+                                <td id="phone-template" class="text-start">9998887776</td>
+                            </tr>
+                            <tr class="text-start">
+                                <th scope="row">Email</th>
+                                <td id="email-template" class="text-start">example@domain.com</td>
+                            </tr>
+                            <tr class="text-start">
+                                <th scope="row">Address</th>
+                                <td id="address-template" class="text-start">New York</td>
+                                <!-- <td colspan="2">Larry the Bird</td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+                <h5>Links</h5>
+                <div class="container">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr class="text-start">
+                                <th scope="row">LinkedIn</th>
+                                <td><a id="linkedin-template" href="#" />www.linkedIn.com</a></td>
+                            </tr>
+                            <tr class="text-start">
+                                <th scope="row">Github</th>
+                                <td><a id="github-template" href="#" />www.github.com</a></td>
+                            </tr>
+                            <tr class="text-start">
+                                <th scope="row">Address</th>
+                                <td><a id="instagram-template" href="#" />www.github.com</a></td>
+                                <!-- <td colspan="2">Larry the Bird</td> -->
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
@@ -180,7 +206,7 @@
                 <!-- <h1 class="text-center">John Doe</h1> -->
 
                 <!-- Objective template  -->
-                <div class="card">
+                <div class="card mt-4">
                     <div class="card-header theme">
                         <h5>Objective</h5>
                     </div>
@@ -243,9 +269,9 @@
         </div>
     </div>
     <div class="container mt-3 text-center" id="save-btn">
-        <button onclick="generatePDF()" class="btn btn-outline-info">Save
-
-            <i class="fa-solid fa-download"></i>
+        <button onclick="printResume()" class="btn btn-outline-info">Print
+            <i class="fa-solid fa-file-pdf"></i>
+            <!-- <i class="fa-solid fa-download"></i> -->
         </button>
         <button onclick="startOver()" type="button" class="btn btn-outline-secondary"> Start Over
             <!-- <i class="fa-solid fa-retweet"></i> -->

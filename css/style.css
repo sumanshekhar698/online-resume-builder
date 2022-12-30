@@ -38,3 +38,10 @@ background-color: var(--theme-color);
 #save-btn{
     display:none;
 }
+
+@media (max-width: 768px){
+    .background{
+        border-radius: 0px;
+    }
+}
+
