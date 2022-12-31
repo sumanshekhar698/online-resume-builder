@@ -173,9 +173,14 @@ function generateResume() {
   console.log("generateResume() >>");
 }
 
-function printResume() {
+function printResume(areaID) {
   console.log("printResume() <<");
+  var printContent = document.getElementById(areaID).innerHTML;
+  var originalContent = document.body.innerHTML;
+  document.body.innerHTML = printContent;
   window.print();
+  document.body.innerHTML = originalContent;
+  // window.print();
   // var prtContent = document.getElementById("resume-template");
   // var WinPrint = window.open(
   //   "",

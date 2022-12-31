@@ -2,51 +2,67 @@
     background-color: aquamarine;
 } */
 
-:root{  
-    /* --theme-color: #e6bc7c; */
-    --theme-color: #d3c8b7;
+:root {
+  /* --theme-color: #e6bc7c; */
+  --theme-color: #d3c8b7;
 }
 
-.profile-pic{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    box-shadow: 0 0 5px 2px rgb(230, 228, 219);
-    margin: 0 auto;
-    /* margin-top: -50px; */
-    margin-bottom: 10px;
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 5px 2px rgb(230, 228, 219);
+  margin: 0 auto;
+  /* margin-top: -50px; */
+  margin-bottom: 10px;
 }
 
-.background{
-    background-color: var(--theme-color);
-    padding: 20px;
-    border-radius: 0.375rem;
-    border:1px solid rgba(0, 0, 0, 0.175);
-    /* box-shadow: 0 0 5px 5px #fff; */
-    /* margin-bottom: 20px; */
+.background {
+  background-color: var(--theme-color);
+  padding: 20px;
+  border-radius: 0.375rem;
+  border: 1px solid rgba(0, 0, 0, 0.175);
+  /* box-shadow: 0 0 5px 5px #fff; */
+  margin-bottom: 20px;
 }
 
-.theme{
-background-color: var(--theme-color);
+.theme {
+  background-color: var(--theme-color);
 }
 
-#resume-template{
-    display:none;
+#resume-template {
+  display: none;
 }
 
-#save-btn{
-    display:none;
+#save-btn {
+  display: none;
 }
 
-@media (max-width: 768px){
-    .background{
-        border-radius: 0px;
-    }
+@media (max-width: 768px) {
+  .background {
+    border-radius: 0px;
+  }
 }
 
-#image-preview{
-    margin: 20px auto 10px auto;
-    max-width: 40%;
+#image-preview {
+  margin: 20px auto 10px auto;
+  max-width: 40%;
 }
 
+@media print {
+  @page {
+    margin: 0;
+  }
+  body {
+    margin: 0.9cm;
+  }
+}
+
+/* size: auto; ====> auto is the initial value 
+    margin: 0mm; ====>this affects the margin in the printer settings */
+/* @page 
+{
+    size: auto;
+    margin: 0mm;
+} */
