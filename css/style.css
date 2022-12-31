@@ -45,3 +45,8 @@ background-color: var(--theme-color);
     }
 }
 
+#image-preview{
+    margin: 20px auto 10px auto;
+    max-width: 40%;
+}
+

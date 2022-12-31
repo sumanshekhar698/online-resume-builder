@@ -51,7 +51,9 @@
 
                 <div class="form-group mt-3">
                     <label for="profile-img">Profile Picture</label>
-                    <input type="file" id="profile-img" accept="image/*" class="form-control">
+                    <input type="file" id="profile-img" accept="image/*" class="form-control" placeholder="upload profile picture" onchange="previewImage(event)">
+                
+                    <img src="#" alt="Uploaded Image" srcset="" style="display: none;" id="image-preview" class="img-thumbnail">
                 </div>
 
 
@@ -62,20 +64,20 @@
                     <label for="linkedin">LinkedIn
                         <i class="fa-brands fa-linkedin"></i>
                     </label>
-                    <input type="text" id="linkedin" class="form-control" placeholder="Enter LinkedIn username">
+                    <input type="text" id="linkedin" class="form-control" placeholder="Enter LinkedIn URL">
                 </div>
                 <div class="form-group">
                     <label for="github">Github
                         <!-- <i class="fa-brands fa-square-github"></i> -->
                         <i class="fa-brands fa-github"></i>
                     </label>
-                    <input type="text" id="github" class="form-control" placeholder="Enter Github username">
+                    <input type="text" id="github" class="form-control" placeholder="Enter Github URL">
                 </div>
                 <div class="form-group">
                     <label for="instagram">Instagram
                         <i class="fa-brands fa-square-instagram"></i>
                     </label>
-                    <input type="text" id="instagram" class="form-control" placeholder="Enter Instagram username only">
+                    <input type="text" id="instagram" class="form-control" placeholder="Enter Instagram URL">
                 </div>
             </div>
 
@@ -94,7 +96,7 @@
                 <!-- Work Experience -->
                 <div class="form-group mt-3" id="experience-div">
                     <label for="experience">Experience</label>
-                    <textarea id="experience-1" cols="30" rows="3" placeholder="Enter work experience 1"
+                    <textarea id="experience-1" cols="30" rows="3" placeholder="Enter work/project experience 1"
                         class="form-control we-field"></textarea>
 
                     <div class="d-grid d-md-flex gap-2 justify-content-md-end mt-2" id="we-btns-div">
@@ -131,7 +133,7 @@
                             <i class="fa-solid fa-circle-plus"></i>
                         </button>
 
-                        <button class="btn btn-danger" id="ed-del-btn" onclick="removeEducation()">Remove Education
+                        <button class="btn btn-outline-danger" id="ed-del-btn" onclick="removeEducation()" disabled=true>Remove Education
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
 

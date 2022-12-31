@@ -27,14 +27,34 @@ function addEducation() {
   let educationAddButtonDivs = document.getElementById("ed-btns-div");
   let ed_del_btn = document.getElementById("ed-del-btn");
 
-  if (academicExperince >= 0) {
+  if (academicExperince > 1) {
     ed_del_btn.classList.remove("btn-outline-danger");
     ed_del_btn.classList.add("btn-danger");
     ed_del_btn.removeAttribute("disabled");
   }
 
   educationDiv.insertBefore(newNode, educationAddButtonDivs);
-  console.log("addEducation() << " + academicExperince);
+  console.log("addEducation() >> " + academicExperince);
+}
+
+function removeEducation() {
+  console.log("removeEducation() << " + academicExperince);
+  let latestEducation = document.getElementById(
+    "education-" + academicExperince
+  );
+  let ed_del_btn = document.getElementById("ed-del-btn");
+
+  if (academicExperince == 2) {
+    ed_del_btn.classList.remove("btn-danger");
+    ed_del_btn.classList.add("btn-outline-danger");
+    ed_del_btn.setAttribute("disabled", true);
+  }
+
+  if (academicExperince > 1) {
+    latestEducation.remove();
+    --academicExperince;
+  }
+  console.log("removeEducation() >> " + academicExperince);
 }
 
 function addWorkExperience() {
@@ -58,7 +78,7 @@ function addWorkExperience() {
   }
 
   experieceDiv.insertBefore(newNode, experienceAddButtonDivs);
-  console.log("addWorkExperience() >>");
+  console.log("addWorkExperience() >> " + experinceCount);
 }
 
 function removeWorkExperience() {
@@ -79,26 +99,6 @@ function removeWorkExperience() {
     --experinceCount;
   }
   console.log("removeWorkExperience() >> " + experinceCount);
-}
-
-function removeEducation() {
-  console.log("removeEducation() << " + academicExperince);
-  let latestEducation = document.getElementById(
-    "education-" + academicExperince
-  );
-  let ed_del_btn = document.getElementById("ed-del-btn");
-
-  if (academicExperince == 1) {
-    ed_del_btn.classList.remove("btn-danger");
-    ed_del_btn.classList.add("btn-outline-danger");
-    ed_del_btn.setAttribute("disabled", true);
-  }
-
-  if (academicExperince != 0) {
-    latestEducation.remove();
-    --academicExperince;
-  }
-  console.log("removeEducation() >> " + academicExperince);
 }
 
 //Generate Resume from the form
@@ -231,7 +231,9 @@ function generatePDF() {
   doc.html(elementHTML, {
     callback: function (doc) {
       // Save the PDF
-      doc.save(fileName.toLowerCase() + "_"+new Date().toLocaleDateString() + ".pdf");
+      doc.save(
+        fileName.toLowerCase() + "_" + new Date().toLocaleDateString() + ".pdf"
+      );
     },
     margin: [10, 10, 10, 10],
     autoPaging: "text",
@@ -246,4 +248,34 @@ function startOver() {
   console.log("startOver() <<");
   window.location.reload();
   console.log("startOver() >>");
+}
+
+function previewImage(event) {
+  console.log("previewImage(event) <<");
+  var imagePreview = document.getElementById("image-preview");
+  if (event.target.files[0]) {
+    imagePreview.src = URL.createObjectURL(event.target.files[0]);
+    imagePreview.style.display = "block";
+    imagePreview.onload = function () {
+      URL.revokeObjectURL(imagePreview.src); // free memory
+    };
+  }
+  console.log("previewImage(event) >>");
+}
+
+function previewImageUsingReader(event) {
+  console.log("previewImageUsingReader(event) <<");
+  // Read carefully: When an image is uploaded using the file input,
+  // it is stored in the browser's cache.
+  //The URL.createObjectURL() will create a link to the cached image on the browser.
+  //To create the base64 string of the file which can be stored in a database use readAsDataURL.
+  var reader = new FileReader();
+  reader.onload = function () {
+    // document.getElementById("image-preview").setAttribute("src", reader.result);
+    var imagePreview = document.getElementById("image-preview");
+    imagePreview.src = reader.result;
+    imagePreview.style.display = "block";
+  };
+  reader.readAsDataURL(event.target.files[0]);
+  console.log("previewImageUsingReader(event) >>");
 }
