@@ -16,7 +16,6 @@
 </head>
 
 <body>
-
     <!-- FORM -->
     <div class="container" id="resume-form">
         <h1 class="text-center my-4 display-1">Resume Builder</h1>
@@ -28,32 +27,40 @@
             <div class="col-md-5">
                 <h3 class="text-center">Personal Details</h3>
 
-                <div class="form-group mt-4">
+                <div class="form-group mt-3">
                     <label for="full-name">Name</label>
                     <input type="text" id="full-name" placeholder="Full Name" required="true" class="form-control">
                 </div>
-                <div class="form-group mt-3">
+                <div class="form-group mt-2">
+                    <label for="dob">DOB</label>
+                    <input type="date" id="dob" placeholder="Full Name" required="true" class="form-control">
+                </div>
+                <div class="form-group mt-2">
                     <label for="phone">Phone Number</label>
                     <input type="tel" id="phone" placeholder="10 Digit phone number" required="true"
                         class="form-control">
                 </div>
-                <div class="form-group mt-3">
+                <div class="form-group mt-2">
                     <label for="email">E-Mail</label>
                     <!-- <input type="tel" id="email" placeholder="someone@example.com" required="true" class="form-control"><br> -->
                     <input type="email" id="email" placeholder="example@domain.com" required="true"
                         class="form-control">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+
                 </div>
-                <div class="form-group mt-3">
+                <div class="form-group mt-2">
                     <label for="address">Address</label>
-                    <textarea id="address" cols="30" rows="5" placeholder="Present Address" required="true"
+                    <textarea id="address" cols="30" rows="3" placeholder="Present Address" required="true"
                         class="form-control"></textarea>
                 </div>
 
-                <div class="form-group mt-3">
+                <div class="form-group mt-2">
                     <label for="profile-img">Profile Picture</label>
-                    <input type="file" id="profile-img" accept="image/*" class="form-control" placeholder="upload profile picture" onchange="previewImage(event)">
-                
-                    <img src="#" alt="Uploaded Image" srcset="" style="display: none;" id="image-preview" class="img-thumbnail">
+                    <input type="file" id="profile-img" accept="image/*" class="form-control"
+                        placeholder="upload profile picture" onchange="previewImage(event)">
+
+                    <img src="#" alt="Uploaded Image" srcset="" style="display: none;" id="image-preview"
+                        class="img-thumbnail">
                 </div>
 
 
@@ -66,50 +73,77 @@
                     </label>
                     <input type="text" id="linkedin" class="form-control" placeholder="Enter LinkedIn URL">
                 </div>
-                <div class="form-group">
+                <div class="form-group mt-1">
                     <label for="github">Github
                         <!-- <i class="fa-brands fa-square-github"></i> -->
                         <i class="fa-brands fa-github"></i>
                     </label>
                     <input type="text" id="github" class="form-control" placeholder="Enter Github URL">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="instagram">Instagram
                         <i class="fa-brands fa-square-instagram"></i>
                     </label>
                     <input type="text" id="instagram" class="form-control" placeholder="Enter Instagram URL">
-                </div>
+                </div> -->
             </div>
 
 
             <!-- Professional Details COL-2 -->
-            <div class="col-md-7">
+            <div class="col-md-7" id="professional-details-form">
                 <h3 class="text-center">Professional Details</h3>
 
                 <!-- Objective  -->
-                <div class="form-group mt-4">
+                <div class="form-group mt-3">
                     <label for="objective">Objective</label>
                     <textarea id="objective" placeholder="Write a short objective you want to pitch"
                         class="form-control"></textarea>
                 </div>
 
-                <!-- Work Experience -->
-                <div class="form-group mt-3" id="experience-div">
-                    <label for="experience">Experience</label>
-                    <textarea id="experience-1" cols="30" rows="3" placeholder="Enter work/project experience 1"
-                        class="form-control we-field"></textarea>
+                <!-- <div class="form-group mt-4"> -->
+                <!-- <div class="grid form-group mt-4" id="add-skill-btn-div"> -->
 
-                    <div class="d-grid d-md-flex gap-2 justify-content-md-end mt-2" id="we-btns-div">
-                        <button class="btn btn-primary" id="we-add-btn" onclick="addWorkExperience()">Add Experience
-                            <i class="fa-solid fa-circle-plus"></i>
+                <!-- <div id="add-skill-btn-div" class="g-col-6">
+                        <button class="btn btn-primary  mt-2" id="add-skill-btn">Add
+                            <i class=" fa-solid fa-circle-plus"></i>
                         </button>
+                    </div> -->
+                <!-- </div> -->
+                <!-- </div> -->
 
-                        <button class="btn btn-danger" id="we-del-btn" onclick="removeWorkExperience()">Remove
-                            Experience
-                            <i class="fa-solid fa-trash-can"></i>
+                <!-- Skills -->
+                <div id="add-skill-input-div" class="mt-2 text-start">
+                    <label for="skill-input">Skills</label>
+                    <div class="input-group" id="skill-input-section">
+                        <input type="text" class="form-control" id="skill-input" placeholder="Enter your relvant skill"">
+                    <div class=" input-group-append">
+                        <button class="btn btn-primary" id="skill-input-button" type="button" onclick="addSkill()">Add
+                            <i class=" fa-solid fa-circle-plus"></i>
                         </button>
                     </div>
-                    <!-- <div class="container text-center mt-2" id="we-del-btn">
+                </div>
+                <div id="skills"></div>
+            </div>
+            <!-- https://getbootstrap.com/docs/4.0/components/input-group/ -->
+
+
+            <!-- Work Experience -->
+            <div class="form-group mt-2" id="experience-div">
+                <label for="experience">Experience</label>
+                <textarea id="experience-1" cols="30" rows="3" placeholder="Enter work/project experience"
+                    class="form-control we-field"></textarea>
+
+                <div class="d-grid d-md-flex gap-2 justify-content-md-end mt-2" id="we-btns-div">
+                    <button class="btn btn-primary" id="we-add-btn" onclick="addWorkExperience()">Add Experience
+                        <i class="fa-solid fa-circle-plus"></i>
+                    </button>
+
+                    <button class="btn btn-danger" id="we-del-btn" onclick="removeWorkExperience()">Remove
+                        Experience
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+                <!-- <div class="container text-center mt-2" id="we-del-btn">
                         <button class="btn btn-warning" onclick="addWorkExperience()">Remove Experience
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
@@ -118,43 +152,45 @@
                             </svg>
                         </button>
                     </div> -->
-                </div>
+            </div>
 
 
-                <!--  Education -->
-                <div class="form-group mt-3" id="education-div">
-                    <label for="education">Education</label>
-                    <textarea id="education-1" cols="30" rows="3" placeholder="Enter academic qualifiaction 1"
-                        class="form-control ed-field"></textarea>
+            <!--  Education -->
+            <div class="form-group mt-2" id="education-div">
+                <label for="education">Education</label>
+                <textarea id="education-1" cols="30" rows="3" placeholder="Enter academic qualifiaction"
+                    class="form-control ed-field"></textarea>
 
-                    <!-- <div class="container text-center mt-2" id="ed-btns-div"> -->
-                    <div class="d-grid d-md-flex gap-2 justify-content-md-end mt-2" id="ed-btns-div">
-                        <button class="btn btn-primary" id="ed-add-btn" onclick="addEducation()">Add Education
-                            <i class="fa-solid fa-circle-plus"></i>
-                        </button>
+                <!-- <div class="container text-center mt-2" id="ed-btns-div"> -->
+                <div class="d-grid d-md-flex gap-2 justify-content-md-end mt-2" id="ed-btns-div">
+                    <button class="btn btn-primary" id="ed-add-btn" onclick="addEducation()">Add Education
+                        <i class="fa-solid fa-circle-plus"></i>
+                    </button>
 
-                        <button class="btn btn-outline-danger" id="ed-del-btn" onclick="removeEducation()" disabled=true>Remove Education
-                            <i class="fa-solid fa-trash-can"></i>
-                        </button>
+                    <button class="btn btn-outline-danger" id="ed-del-btn" onclick="removeEducation()"
+                        disabled=true>Remove
+                        Education
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
 
-                    </div>
                 </div>
             </div>
 
         </div>
-        <div class="container text-center mt-4 mb-3 submit-btn">
-            <button onclick="generateResume()" class="btn btn-success">Generate Resume
 
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
+    </div>
+    <div class="container text-center mt-4 mb-3 submit-btn">
+        <button onclick="generateResume()" class="btn btn-success">Generate Resume
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </button>
+    </div>
 
-            </button>
-        </div>
     </div>
 
     <!-- TEMPLATE  -->
-    <div class="container" id="resume-template">
+    <div class="container  mt-2 border rounded" id="resume-template">
         <div class="row  mx-3 my-3">
-            <!--COL-1 ==>  4 of 12 grid columns -->
+            <!--COL-1 ==>  4 of 12 grid columns [Personal template]-->
             <div class="col-md-4 background text-center ">
                 <img src="/img/blank-profile-picture.webp" id="profile-img-template" class="profile-pic text-center"
                     alt="">
@@ -163,6 +199,10 @@
                     <h3 id="full-name-template">John Doe</h3>
                     <table class="table table-borderless">
                         <tbody>
+                            <tr class="text-start">
+                                <th scope="row">DOB</th>
+                                <td id="dob-template" class="text-start">15-12-1997</td>
+                            </tr>
                             <tr class="text-start">
                                 <th scope="row">Phone</th>
                                 <td id="phone-template" class="text-start">9998887776</td>
@@ -191,24 +231,24 @@
                             <tr class="text-start">
                                 <th scope="row">Github</th>
                                 <td><a id="github-template" href="#" />www.github.com</a></td>
-                            </tr>
-                            <tr class="text-start">
-                                <th scope="row">Address</th>
-                                <td><a id="instagram-template" href="#" />www.github.com</a></td>
                                 <!-- <td colspan="2">Larry the Bird</td> -->
                             </tr>
+                            <!-- <tr class="text-start">
+                                <th scope="row">Address</th>
+                                <td><a id="instagram-template" href="#" />www.github.com</a></td>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
             </div>
 
 
-            <!--COL-2 ==>  4 of 12 grid columns -->
-            <div class="col-md-7">
+            <!--COL-2 ==>  4 of 12 grid columns [Professional template]-->
+            <div class="col-md-8">
                 <!-- <h1 class="text-center">John Doe</h1> -->
 
                 <!-- Objective template  -->
-                <div class="card mt-4">
+                <div class="card mt-2">
                     <div class="card-header theme">
                         <h5>Objective</h5>
                     </div>
@@ -220,6 +260,18 @@
                             Illum dolorem cum eum eveniet reiciendis adipisci nemo corrupti magnam fugiat cumque,
                             placeat
                             soluta doloribus.</p>
+                    </div>
+                </div>
+
+                <!-- SKill Template  -->
+                <div class="card mt-4">
+                    <div class="card-header theme">
+                        <h5>Skills</h5>
+                    </div>
+                    <div class="card-body" id="skill-template-div">
+
+                        <span class="badge rounded-pill bg-secondary skill-pill">Java</span>
+                        <span class="badge rounded-pill bg-secondary skill-pill">Java</span>
                     </div>
                 </div>
 
@@ -271,8 +323,11 @@
         </div>
     </div>
     <div class="container mt-3 mb-4 text-center" id="save-btn">
-        <button onclick="printResume('resume-template')" class="btn btn-outline-info">Print
-            <i class="fa-solid fa-file-pdf"></i>
+        <button onclick="printResume('resume-template')" class="btn btn-info">Print
+            <!-- <i class="fa-solid fa-file-pdf"></i> -->
+            <i class="fa-solid fa-print"></i>
+            <!-- <i class="fa-regular fa-file-pdf"></i> -->
+
             <!-- <i class="fa-solid fa-download"></i> -->
         </button>
         <button onclick="startOver()" type="button" class="btn btn-outline-secondary"> Start Over

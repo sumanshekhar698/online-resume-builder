@@ -1,6 +1,7 @@
 // alert('loading')
 var experinceCount = 1;
 var academicExperince = 1;
+const skillSet = new Set();
 var fileName = "";
 
 function addEducation() {
@@ -109,6 +110,10 @@ function generateResume() {
   fullNameTemplate.innerHTML = fullName;
   fileName = fullName;
 
+  let dob = document.getElementById("dob").value;
+  let dobTemplate = document.getElementById("dob-template");
+  dobTemplate.innerHTML = dob;
+
   let phone = document.getElementById("phone").value;
   let phoneTemplate = document.getElementById("phone-template");
   phoneTemplate.innerHTML = phone;
@@ -129,13 +134,23 @@ function generateResume() {
   let githubTemplate = document.getElementById("github-template");
   githubTemplate.innerHTML = github;
 
-  let instagram = document.getElementById("instagram").value;
-  let instagramTemplate = document.getElementById("instagram-template");
-  instagramTemplate.innerHTML = instagram;
+  // let instagram = document.getElementById("instagram").value;
+  // let instagramTemplate = document.getElementById("instagram-template");
+  // instagramTemplate.innerHTML = instagram;
 
+  // Objective
   let objective = document.getElementById("objective").value;
   let objectiveTemplate = document.getElementById("objective-template");
   objectiveTemplate.innerHTML = objective;
+
+  //   Skills
+  // let skills = document.getElementsByClassName("we-field");
+  let skillSetString = "";
+  for (let skill of skillSet) {
+    // skilSetString += `<li>${skill}</li>`;
+    skillSetString += `<span class="badge rounded-pill bg-secondary skill-pill">${skill}</span>\n`;
+  }
+  document.getElementById("skill-template-div").innerHTML = skillSetString;
 
   //   Work Experience
   let experiences = document.getElementsByClassName("we-field");
@@ -283,4 +298,37 @@ function previewImageUsingReader(event) {
   };
   reader.readAsDataURL(event.target.files[0]);
   console.log("previewImageUsingReader(event) >>");
+}
+
+function addSkill() {
+  if (document.querySelector("#skill-input-section input").value.length == 0) {
+    alert("Please Enter a Skill");
+  } else {
+    var skillValue = document.querySelector("#skill-input-section input").value;
+    if (skillSet.has(skillValue)) {
+      alert("Skill already exists");
+      return;
+    }
+    skillSet.add(skillValue);
+    document.querySelector("#skills").innerHTML += `
+          <div class="skill mt-1">
+              <span id="skillname">
+                  ${skillValue}
+              </span>
+              <button class="btn btn-outline-danger delete">
+              <i class="fa-solid fa-trash-can"></i>
+              </button>
+          </div>
+      `;
+
+    var current_tasks = document.querySelectorAll(".delete");
+    for (var i = 0; i < current_tasks.length; i++) {
+      current_tasks[i].onclick = function () {
+        skillSet.delete(this.parentNode.querySelector("#skillname").innerText); //remove skill from set
+        this.parentNode.remove();
+      };
+    }
+  }
+  document.querySelector("#skill-input-section input").value = "";
+  console.log(skillSet);
 }
