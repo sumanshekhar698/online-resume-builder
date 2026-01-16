@@ -11,11 +11,20 @@
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="shortcut icon" href="/img/pin-cv.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/orange-cv.ico" type="image/x-icon">
     <title>Resume Builder</title>
 </head>
 
 <body>
+    <div class="form-check form-switch mt-3 ms-3">
+        <input class="form-check-input" type="checkbox" id="darkModeToggle">
+        <label class="form-check-label" for="darkModeToggle">
+            <i class="fa-solid fa-moon"></i> Dark Mode
+        </label>
+    </div>
+
+    <form action=""></form>
+
     <!-- FORM -->
     <div class="container" id="resume-form">
         <h1 class="text-center my-4 display-1">Resume Builder</h1>
@@ -256,13 +265,10 @@
                         <h5>Objective</h5>
                     </div>
                     <div class="card-body">
-                        <p id="objective-template">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi quidem
-                            odio
-                            nisi error aliquid quas, doloremque quae, impedit aut corrupti dolorum sit ipsa quisquam
-                            facere!
-                            Illum dolorem cum eum eveniet reiciendis adipisci nemo corrupti magnam fugiat cumque,
-                            placeat
-                            soluta doloribus.</p>
+                        <p id="objective-template">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum sed in,
+                            debitis dicta accusantium repudiandae eos qui, itaque incidunt dolor, amet reprehenderit
+                            quas exercitationem eaque pariatur! Laborum optio facilis similique, est minima ad suscipit
+                            dolorem quisquam delectus porro, deleniti aperiam?</p>
                     </div>
                 </div>
 
@@ -326,8 +332,8 @@
         </div>
     </div>
     <div class="container mt-3 mb-4 text-center" id="save-btn">
-        <button onclick="startOver()" type="button" class="btn btn-outline-secondary"> Start 
-            <i class="fa-solid fa-dragon"></i> Over
+        <button onclick="startOver()" type="button" class="btn btn-outline-secondary">
+            Restart <i class="fa-solid fa-retweet"></i>
         </button>
         <button onclick="printResume('resume-template')" class="btn btn-success">Print
             <i class="fa-solid fa-print"></i>

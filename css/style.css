@@ -7,6 +7,24 @@
   --theme-color: #d3c8b7;
 }
 
+/* <==== Dark Mode Support ====> */
+/* Custom variables for your Resume Sidebar */
+[data-bs-theme="light"] {
+  --resume-sidebar-bg: #f8f9fa; /* Light Gray */
+  --resume-text: #212529;
+}
+
+[data-bs-theme="dark"] {
+  --resume-sidebar-bg: #343a40; /* Dark Gray */
+  --resume-text: #f8f9fa;
+}
+
+/* Apply variables to your specific class */
+.background {
+  background-color: var(--resume-sidebar-bg) !important;
+  color: var(--resume-text);
+}
+
 .profile-pic {
   width: 100px;
   height: 100px;

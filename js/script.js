@@ -68,6 +68,7 @@ function addWorkExperience() {
     "placeholder",
     "Enter work experience " + experinceCount
   );
+
   let experieceDiv = document.getElementById("experience-div");
   let experienceAddButtonDivs = document.getElementById("we-btns-div");
   let we_del_btn = document.getElementById("we-del-btn");
@@ -332,3 +333,32 @@ function addSkill() {
   document.querySelector("#skill-input-section input").value = "";
   console.log(skillSet);
 }
+
+
+const toggle = document.getElementById('darkModeToggle');
+/*toggle.addEventListener('change', () => {
+    if (toggle.checked) {
+        // Apply dark theme to the entire document
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
+    } else {
+        // Revert to light theme
+        document.documentElement.setAttribute('data-bs-theme', 'light');
+    }
+});
+*/
+// 1. Check for saved theme on page load
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  document.documentElement.setAttribute('data-bs-theme', savedTheme);
+  toggle.checked = savedTheme === 'dark';
+}
+
+// 2. Listen for toggle changes
+toggle.addEventListener('change', () => {
+  const theme = toggle.checked ? 'dark' : 'light';
+
+  // Apply the theme
+  document.documentElement.setAttribute('data-bs-theme', theme);
+  // Save the preference to localStorage
+  localStorage.setItem('theme', theme);
+});
